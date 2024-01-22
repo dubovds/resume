@@ -1,0 +1,45 @@
+@use './utils';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: utils.$color-text;
+    font-size: 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: utils.toRem(1140);
+    margin: 0 auto;
+    padding: 1rem;
+
+    @media (min-width: 768px) {
+        padding: 0;
+    }
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h2 {
+    font-size: toRem(25);
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+      font-size: toRem(35);
+    }
+}
+
+h3 {
+    font-size: utils.toRem(24)
+}
+
+h5 {
+    font-weight: 400;
+}
