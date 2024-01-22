@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
+import { applyMagneticEffect } from '@/utils/magnetEffect';
 
 defineProps({
   buttonName: String,
@@ -51,9 +52,13 @@ watch(isHovering, (newVal) => {
     }, 50);
   }
 });
+
+onMounted(() => {
+    applyMagneticEffect('.magnetic');
+});
 </script>
 <template>
-     <a :href="buttonLink" class="btn" @mouseenter="enter" @mouseleave="leave">
+     <a :href="buttonLink" class="btn magnetic" @mouseenter="enter" @mouseleave="leave">
         <span class="btn-text">{{buttonName}}</span>
         <span class="btn-fill" :style="contentStyle"></span>
      </a>
