@@ -1,11 +1,19 @@
 <script setup>
+import { useMeta } from 'vue-meta';
 import { RouterView } from 'vue-router';
 import TheGreetings from './components/TheGreetings.vue';
-import HomeView from './views/HomeView.vue';
+
+useMeta({
+  title: 'Dmytro Dubov',
+  htmlAttrs: { lang: 'en', amp: true }
+})
 
 </script>
 
 <template>
+   <metainfo>
+    <template v-slot:title="{ content }">{{ content ? `${content} | Frontend Developer` : `SITE_NAME` }}</template>
+  </metainfo>
   <TheGreetings />
   
   <RouterView />

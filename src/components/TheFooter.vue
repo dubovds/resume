@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import TheButton from './TheButton.vue';
 
 const localTime = ref('');
 
@@ -27,6 +28,10 @@ onUnmounted(() => {
 <template>
   <footer class="footer">
     <div class="container">
+      <div class="contacts">
+        <TheButton button-name="dubovds87@gmail.com" button-link="mailto:dubovds87@gmail.com"/>
+        <TheButton button-name="916 459 7362" button-link="tel:+19164597362"/>
+      </div>
 
       <div class="bottom-section">
         <div class="bottom-section__item flex">
@@ -46,6 +51,7 @@ onUnmounted(() => {
               <li><a href="https://www.linkedin.com/in/dubovds/" target="_blank">LinkedIn</a></li>
               <li><a href="#">GitHub</a></li>
             </ul>
+            <div class="stripe"></div>  
           </div>
         </div>
       </div>
@@ -57,13 +63,23 @@ onUnmounted(() => {
 
 .footer {
   background-color: #000;
-  padding: 80px 0;
+  padding: 30px 0;
   color: #fff;
+
+  @media (min-width: 768px) {
+    padding: 80px 0;
+  }
 }
 
 .bottom-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   h5 {
     margin: 0 0 0.7rem;
@@ -108,8 +124,43 @@ onUnmounted(() => {
   }
 }
 
+.stripe {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.225);
+  margin-top: 24px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .flex {
   display: flex;
-  gap: 50px;
+  justify-content: space-between;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    gap: 50px;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 80px;
+  }
+
+  .btn {
+    width: 100%;
+
+  @media (min-width: 768px) {
+    width: max-content;
+  }
+  }
 }
 </style>
