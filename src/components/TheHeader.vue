@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+// import { RouterLink } from 'vue-router';
 import steakerIcon from '@/assets/icons/steakerIcon.vue';
 import DigitalBall from './DigitalBall.vue';
 </script>
@@ -10,7 +10,7 @@ import DigitalBall from './DigitalBall.vue';
         <div class="header-logo">© Code by Dmytro</div>
         <div class="header-menu">
           <nav>
-            <RouterLink to="/about">Experience</RouterLink>
+            <!-- <RouterLink to="/about">Experience</RouterLink> -->
             <a href="/dmytro_dubov_resume.pdf" download>Resume</a>
           </nav>
         </div>
@@ -23,7 +23,7 @@ import DigitalBall from './DigitalBall.vue';
         </span>
       </div>
       <div class="header-photo">
-          <img src="../assets/test-img.jpg" alt="">
+          <img src="../assets/dmytro_crop.png" alt="">
         </div>
         <div class="profile-name">
           <h1>Dmytro Dubov</h1>
