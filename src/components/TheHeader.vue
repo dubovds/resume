@@ -1,17 +1,27 @@
 <script setup>
+import { onMounted } from 'vue';
+import { applyMagneticEffect } from '@/utils/magnetEffect';
 // import { RouterLink } from 'vue-router';
 import steakerIcon from '@/assets/icons/steakerIcon.vue';
 import DigitalBall from './DigitalBall.vue';
+
+onMounted(() => {
+  applyMagneticEffect('.magnetic');
+});
 </script>
 <template>
     <header>
     <div class="container">
       <div class="header-top-section">
-        <div class="header-logo">© Code by Dmytro</div>
+        <div class="header-logo magnetic">
+          <span>© Code by Dmytro</span>
+        </div>
         <div class="header-menu">
           <nav>
             <!-- <RouterLink to="/about">Experience</RouterLink> -->
-            <a href="/dmytro_dubov_resume.pdf" download>Resume</a>
+            <a href="/dmytro_dubov_resume.pdf" class="magnet" download>
+              <span>Resume</span>
+            </a>
           </nav>
         </div>
       </div>
