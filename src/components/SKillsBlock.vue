@@ -46,13 +46,10 @@
     window.removeEventListener('scroll', checkVisibility);
   });
   </script>
-  <style scoped>
-
+  <style scoped lang="scss">
+@import '../assets/scss/utils/';
   .skill {
     margin-bottom: 10px;
-  }
-  .skill-name {
-    /* Styles for the skill name */
   }
 
   .skill-bar {
@@ -63,7 +60,7 @@
   }
   .skill-level {
     height: 5px;
-    background-color: #74F0ED;
+    background-color: $color-blue;
     transition: width 2s ease-out;
   }
   </style>

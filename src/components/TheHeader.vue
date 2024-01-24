@@ -1,45 +1,56 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { applyMagneticEffect } from '@/utils/magnetEffect';
-// import { RouterLink } from 'vue-router';
+import { useRoute , RouterLink } from 'vue-router';
 import steakerIcon from '@/assets/icons/steakerIcon.vue';
 import DigitalBall from './DigitalBall.vue';
+
+const route = useRoute();
+const isHomePage = ref(false);
+
+watch(() => route.path, (newPath) => {
+  isHomePage.value = newPath === '/';
+}, { immediate: true });
 
 onMounted(() => {
   applyMagneticEffect('.magnetic');
 });
 </script>
 <template>
-    <header>
+  <header class="header" :class="{'header-s': !isHomePage}">
     <div class="container">
-      <div class="header-top-section">
-        <div class="header-logo magnetic">
+      <div class="header-top-section"> 
+        <RouterLink to="/" class="header-logo magnetic">
           <span>© Code by Dmytro</span>
-        </div>
+        </RouterLink>
         <div class="header-menu">
           <nav>
-            <!-- <RouterLink to="/about">Experience</RouterLink> -->
-            <a href="/dmytro_dubov_resume.pdf" class="magnet" download>
+            <ul class="menu-list">
+              <li> <RouterLink to="/experience" class="menu-link magnetic">Experience</RouterLink></li>
+              <li><a href="/dmytro_dubov_resume.pdf" class="menu-link magnetic" download>
               <span>Resume</span>
-            </a>
+            </a></li>
+            </ul>
+            <!-- <RouterLink to="/about">Experience</RouterLink> -->
           </nav>
         </div>
       </div>
-      <div class="header-location">
-        <steakerIcon />
-        <DigitalBall />
-        <span>
-          Located in <br> San Francisco, CA
-        </span>
-      </div>
-      <div class="header-photo">
-          <img src="../assets/dmytro_crop.png" alt="">
+      <div v-if="isHomePage">
+        <div class="header-location">
+          <steakerIcon />
+          <DigitalBall />
+          <span>
+            Located in <br> San Francisco, CA
+          </span>
+        </div>
+        <div class="header-photo">
+          <img src="../assets/dmytro_crop.png" alt="Dmytro Dubov">
         </div>
         <div class="profile-name">
           <h1>Dmytro Dubov</h1>
           <h2>Frontend Developer</h2>
         </div>
-      
+      </div> 
     </div>
   </header>
 </template>
@@ -51,8 +62,22 @@ header {
   // height: 80vh;
   height: 100vh;
   background-color: $color-grey;
-
   overflow: hidden;
+
+  &.header-s {
+    height: auto;
+    overflow: inherit;
+    background-color: transparent;
+
+    .header-logo,
+    .menu-link {
+      color: $color-black;
+
+      &:after {
+        background-color: $color-black;
+      }
+    }
+  }
 }
 
 .header-top-section {
@@ -64,6 +89,7 @@ header {
 .header-logo {
   color: $color-white;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .header-menu {
@@ -71,13 +97,6 @@ header {
 
   @media (min-width: 768px) {
     display: block;
-  }
-
-  a {
-    padding: 0 24px;
-    color: $color-white;
-    text-decoration: none;
-    font-size: 18px;
   }
 }
 
@@ -113,8 +132,7 @@ header {
     transition: transform 0.8s ease-out;
 
     @media (min-width: 768px) {
-      width: 38%;
-      height: 100%;
+      
     }
   }
 }
@@ -190,6 +208,41 @@ header {
 
     @media (min-width: 768px) {
       transform: translate(-50%, 3%);
+    }
+  }
+}
+
+.menu-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  position: relative;
+  padding: 0 24px;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 18px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: calc(clamp(16px, 1.2vw, 19px) / 2.75);
+    height: calc(clamp(16px, 1.2vw, 19px) / 2.75);
+    background-color: $color-white;
+    border-radius: 50%;
+    bottom: toRem(-24);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: all 0.3s ease-out;
+  }
+
+  &.router-link-active,
+  &:hover {
+    &:after {
+      transform: translateX(-50%) scale(1);
     }
   }
 }
