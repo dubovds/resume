@@ -9,13 +9,15 @@ import SKillsBlock from '@/components/SKillsBlock.vue';
       <div class="about-wrapper">
         <div class="about-block"> 
           <h3>Summary</h3>
-          <p>Frontend Developer with over 7 years of experience in B2C and B2B web and mobile application development. Expert in
-  JavaScript, HTML5, CSS3, SASS, VueJS, and React, with a strong focus on creating user-friendly interfaces using CMS
-  tools like Drupal and WordPress.
+          <p>
+            I am Dmytro Dubov, a seasoned Frontend Developer with over 7 years of experience in crafting both B2C and B2B web and mobile applications. My expertise lies in JavaScript, HTML5, CSS3, SASS, VueJS, and React, and I am particularly skilled at creating user-friendly interfaces using CMS tools like Drupal and WordPress.
           </p>
-          <p>Proven track record in enhancing user experience and web accessibility, leading
-          successful project redesigns, and innovating development processes.</p>
-          <p>Committed to delivering high-quality UI solutions and staying at the forefront of frontend technology trends.</p>
+          <p>
+            I have a proven track record in enhancing user experience and web accessibility, leading successful project redesigns, and pioneering innovations in development processes. My commitment to delivering high-quality UI solutions is matched by my dedication to staying abreast of the latest trends in frontend technology.
+          </p>
+          <p>
+            Driven by a passion for excellence in web development, I continuously seek to bring cutting-edge solutions and creative approaches to my work, ensuring superior user engagement and satisfaction.
+          </p>
         </div>
         <div class="about-block">
           <h3>Competence</h3>

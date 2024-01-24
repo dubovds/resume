@@ -1,5 +1,7 @@
 import { gsap } from 'gsap';
 
+// Idea from here https://codepen.io/tdesero/pen/RmoxQg
+
 function moveMagnet(event, strength) {
   const magnetButton = event.currentTarget;
   const bounding = magnetButton.getBoundingClientRect();

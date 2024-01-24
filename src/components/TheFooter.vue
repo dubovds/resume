@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import TheButton from './TheButton.vue';
+import { applyMagneticEffect } from '@/utils/magnetEffect';
 
 const localTime = ref('');
 
@@ -19,6 +20,7 @@ let intervalId;
 onMounted(() => {
   updateTime();
   intervalId = setInterval(updateTime, 1000); // Update time every second
+  applyMagneticEffect('.magnetic');
 });
 
 onUnmounted(() => {
@@ -48,8 +50,8 @@ onUnmounted(() => {
           <div class="social">
             <h5>Socials</h5>
             <ul>
-              <li><a href="https://www.linkedin.com/in/dubovds/" target="_blank">LinkedIn</a></li>
-              <li><a href="#">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/dubovds/" class="magnetic" target="_blank">LinkedIn</a></li>
+              <li><a href="#" class="magnetic">GitHub</a></li>
             </ul>
             <div class="stripe"></div>  
           </div>
